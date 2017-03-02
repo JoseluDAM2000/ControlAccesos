@@ -27,6 +27,7 @@ public class AnalizadorAccesosAServidor
     public void analizarArchivoDeLog(String nombre)
     {
         try{
+            accesos.clear();
             File archivo = new File(nombre);
             Scanner sc = new Scanner(archivo);
             while (sc.hasNextLine()){
@@ -61,7 +62,7 @@ public class AnalizadorAccesosAServidor
             int accesosMaximos = 0;
             int index = 0;
             while(index < horas.length){
-                if(horas[index] > accesosMaximos){
+                if(horas[index] >= accesosMaximos){
                     accesosMaximos = horas[index];
                     indexGuardado = index;
                 }
